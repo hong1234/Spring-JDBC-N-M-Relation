@@ -1,29 +1,33 @@
 package com.hong.demo9.repository;
 
-import lombok.AllArgsConstructor;
-// import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+// import java.util.Map;
+// import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
+// import java.sql.Types;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import org.springframework.stereotype.Repository;
+// import org.springframework.transaction.annotation.Transactional;
+
+// import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import org.springframework.jdbc.core.RowMapper;
+// import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.ResultSetExtractor;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import org.springframework.dao.DataAccessException;
-import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.sql.Types;
 
 import com.hong.demo9.exception.ResourceNotFoundException;
 import com.hong.demo9.exception.ReadyExistException;
+
+import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Repository
@@ -119,7 +123,7 @@ public class StudentRepository {
 
     }
 
-    public void assignCourse(Integer studentId, Integer courseId) {
+    public void addStudentCourse(Integer studentId, Integer courseId) {
         String sql = "INSERT INTO STUDENT_COURSE (STUDENT_ID, COURSE_ID) VALUES (:studentId, :courseId)";
         SqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("studentId", studentId)
@@ -142,7 +146,7 @@ public class StudentRepository {
         student.setStudentId(key.intValue());
         if (student.getCourses() != null) {
             for (Course course : student.getCourses()) {
-                assignCourse(student.getStudentId(), course.getCourseId());
+                addStudentCourse(student.getStudentId(), course.getCourseId());
             }
         }
 

@@ -17,6 +17,8 @@ public class StudentService {
     StudentRepository studentRepository;
     CourseRepository courseRepository;
 
+    // student
+
     public Iterable<Student> allStudents(){
         return studentRepository.getAllStudents();
     }
@@ -37,8 +39,10 @@ public class StudentService {
 
     public void addStudentCourse(StudentCourse stucou){
         studentRepository.findAssign(stucou.getStudentId(), stucou.getCourseId());
-        studentRepository.assignCourse(stucou.getStudentId(), stucou.getCourseId());
+        studentRepository.addStudentCourse(stucou.getStudentId(), stucou.getCourseId());
     }
+
+    // course
 
     public Iterable<Course> getCourses(){
         return courseRepository.getAllCourses();
@@ -52,4 +56,5 @@ public class StudentService {
         course.setUuid(UUID.randomUUID().toString());
         return courseRepository.saveCourse(course);
     }
+
 }

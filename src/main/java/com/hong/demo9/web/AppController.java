@@ -12,7 +12,7 @@ import com.hong.demo9.service.StudentService;
 
 import com.hong.demo9.repository.*;
 
-import java.util.*;
+// import java.util.*;
 
 @AllArgsConstructor
 @RestController
@@ -63,19 +63,19 @@ public class AppController {
 
     // TESTS ----
 
-    @GetMapping("/test")
-    public ResponseEntity<List<String>> test(){
-        List<String> courses = new ArrayList<>();
-        courses.add("abc123");
-        courses.add("ABC321");
-        courses.add("BBC333");
-        return ResponseEntity.ok(courses);
-    }
+    // @GetMapping("/test")
+    // public ResponseEntity<List<String>> test(){
+    //     List<String> courses = new ArrayList<>();
+    //     courses.add("abc123");
+    //     courses.add("ABC321");
+    //     courses.add("BBC333");
+    //     return ResponseEntity.ok(courses);
+    // }
 
-    @PostMapping("/test2")
-    public ResponseEntity<StudentDto> test2(@RequestBody StudentDto dto){
-        return ResponseEntity.ok(dto);
-    }
+    // @PostMapping("/test2")
+    // public ResponseEntity<StudentDto> test2(@RequestBody StudentDto dto){
+    //     return ResponseEntity.ok(dto);
+    // }
 
 
 

@@ -1,5 +1,7 @@
 ## Rest API Spring JDBC n-m-relation
 
+// https://krishaniindrachapa.medium.com/get-results-from-join-queries-using-result-extractor-069afc4d792b
+
 ## add a Student
 
 POST localhost:8080/api/student
